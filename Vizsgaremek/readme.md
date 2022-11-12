@@ -2,8 +2,8 @@
 
 ## Leírás
 
-Az alkalmazás egy futónaplót modellez. Sokan, akik sportolnak vezetik az edzéseiket, innen jött az ötlet. A cél egy olyan 
-alkalmazás létrehozása volt, ami alkalmas futóedzések vezetésére.
+Az alkalmazás egy futónaplót modellez. Sokan, akik rendszeresen sportolnak (futnak) vezetik az edzéseiket, innen jött az ötlet. A cél egy olyan 
+alkalmazás létrehozása volt, ami alkalmas futóedzések vezetésére. Konkrétan kiszámolja a betáplált útvonalat km-ben.
 
 ---
 
