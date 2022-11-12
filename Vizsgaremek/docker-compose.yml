@@ -1,0 +1,21 @@
+version: "3.8"
+  services:
+    app:
+      build:
+        dockerfile: Dockerfile
+        context: .
+      volumes:
+        ports:
+          - "8080:8080"
+        depends_on:
+          - mariadb
+
+    mariadb:
+      image: mariadb_latest
+      container_name: node-fw
+      ports: "3306:3306"
+      environment:
+        - MARIADB_ROOT_PASSWORD=pass
+        - MARIADB_PASSWORD=passpass
+        - MARIADB_USER=hadikp
+        - MYSQL_DATABASE=vizsgaremek

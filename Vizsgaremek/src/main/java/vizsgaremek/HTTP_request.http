@@ -1,0 +1,129 @@
+
+###Coordinate----------------------------------------------------------------------------------------
+
+POST http://localhost:8080/api/coordinate/create
+Content-Type: application/json
+
+{
+
+  "name": "ujCoordinata",
+  "latitude": 47.222333,
+  "longitude": 18.444555
+
+}
+
+###Get
+GET http://localhost:8080/api/coordinate
+Accept: application/json
+
+###Get/id
+GET http://localhost:8080/api/coordinate/1
+Accept: application/json
+
+###Put latitude
+PUT http://localhost:8080/api/coordinate/lat/1
+Content-Type: application/json
+
+{
+
+  "latitude": 47.111222
+
+}
+
+###Delete
+DELETE http://localhost:8080/api/coordinate/8
+Accept: application/json
+
+###TrackPoint----------------------------------------------------------------------------
+GET http://localhost:8080/api/track
+Accept: application/json
+
+###Get/id
+GET http://localhost:8080/api/track/2
+Accept: application/json
+
+###Post
+POST http://localhost:8080/api/track/create
+Content-Type: application/json
+
+{
+
+  "name": "Budai út",
+  "elevation": 155,
+  "coordinate": {
+    "name": "budai",
+    "latitude": 47.197875,
+    "longitude": 18.481305
+  }
+
+}
+
+###Put trackPoint name
+PUT http://localhost:8080/api/track/name/2
+Content-Type: application/json
+
+{
+
+  "name": "új név"
+
+}
+
+###Delete
+DELETE http://localhost:8080/api/track/8
+Accept: application/json
+
+###Training------------------------------------------------------------------------
+GET http://localhost:8080/api/training
+Accept: application/json
+
+###Get/id
+GET http://localhost:8080/api/training/2
+Accept: application/json
+
+###Get/sum- edzés hossza m-ben
+GET http://localhost:8080/api/training/sum/1
+Accept: application/json
+
+###Get/elevation- edzés szintemelkedése m-ben
+GET http://localhost:8080/api/training/elevation/1
+Accept: application/json
+
+###Post
+POST http://localhost:8080/api/training/create
+Content-Type: application/json
+
+{
+
+  "name": "futás",
+  "description": "Péter új futása",
+  "date": "2022-06-19",
+  "trackpoints": [
+    {  "name": "Halesz vége",
+      "elevation": 155,
+      "coordinate": {
+        "name": "haleszVegC",
+        "latitude": 47.195157,
+        "longitude": 18.439192
+      }
+    },
+    {  "name": "Lehel út",
+      "elevation": 156,
+      "coordinate": {
+        "name": "lehelC",
+        "latitude": 47.197683,
+        "longitude": 18.443774
+      }
+    },
+    {  "name": "Gorkij út eleje",
+      "elevation": 157,
+      "coordinate": {
+        "name": "gorkijC",
+        "latitude": 47.201353,
+        "longitude": 18.436567
+      }
+    }
+
+  ]
+
+}
+
