@@ -2,6 +2,8 @@ package vizsgaremek.coordinate;
 
 import lombok.*;
 
+import javax.validation.constraints.Pattern;
+
 @Getter
 @Setter
 @NoArgsConstructor

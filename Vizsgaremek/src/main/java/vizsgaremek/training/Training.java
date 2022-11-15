@@ -28,6 +28,8 @@ public class Training {
     @Column(name = "training_date")
     private LocalDate date;
 
+    private double km;
+
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "training_trackpoint", joinColumns = @JoinColumn(name = "training_id"),

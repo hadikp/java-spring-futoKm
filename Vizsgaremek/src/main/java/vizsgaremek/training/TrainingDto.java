@@ -19,4 +19,5 @@ public class TrainingDto {
     private String name;
     private String description;
     private LocalDate date;
+    private double km;
 }
