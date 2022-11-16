@@ -1,9 +1,6 @@
 package vizsgaremek.training;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import vizsgaremek.trackpoint.TrackPoint;
 
 import javax.persistence.*;
@@ -13,8 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -68,7 +64,9 @@ public class Training {
             double distance = trackpoints.get(i).getDistanceFrom(trackpoints.get(i+1));
             sum += distance;
         }
-        return Math.round(100.0 * (sum / 1000) / 100.0);
+        BigDecimal bg = new BigDecimal(sum / 1000).setScale(2, RoundingMode.HALF_UP); //round two digits
+        double bgSum = bg.doubleValue();
+        return bgSum;
     }
 
     public double getTrainingSumElevation(){
@@ -79,9 +77,6 @@ public class Training {
                 sum += elevationDifference;
             }
         }
-        BigDecimal bg = new BigDecimal(sum / 1000).setScale(2, RoundingMode.HALF_UP);
-        double bgSum = bg.doubleValue();
-        System.out.println(bgSum);
-        return bgSum;
+        return sum;
     }
 }

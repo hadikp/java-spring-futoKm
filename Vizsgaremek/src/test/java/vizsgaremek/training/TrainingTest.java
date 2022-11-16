@@ -24,7 +24,8 @@ class TrainingTest {
 
     @Test
     void testGetTrainingAllDistance(){
-        assertEquals(445.9, training.getTrainingAllDistance(), 0.5);
+        //System.out.println(training.getTrainingAllDistance());
+        assertEquals(445.9, 1000 * training.getTrainingAllDistance(), 0.5);
     }
 
     @Test
