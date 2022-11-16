@@ -30,11 +30,20 @@ public class TrainingCommand {
     @Schema(example = "2022-05-11")
     private LocalDate date;
 
+    private double km;
+
     private List<TrackPoint> trackpoints = new ArrayList<>();
 
     public TrainingCommand(String name, String description, LocalDate date) {
         this.name = name;
         this.description = description;
         this.date = date;
+    }
+
+    public TrainingCommand(String name, String description, LocalDate date, List<TrackPoint> trackpoints) {
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.trackpoints = trackpoints;
     }
 }

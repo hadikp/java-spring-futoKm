@@ -7,6 +7,8 @@ import lombok.Setter;
 import vizsgaremek.trackpoint.TrackPoint;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,13 @@ public class Training {
         this.trackpoints = trackpoints;
     }
 
+    public Training(String name, String description, LocalDate date, double km) {
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.km = km;
+    }
+
     public void addTrackpoint(TrackPoint trackPoint) {
         trackpoints.add(trackPoint);
         trackPoint.getTrainings().add(this);
@@ -58,9 +67,8 @@ public class Training {
         for (int i = 0; i < trackpoints.size() - 1; i++) {
             double distance = trackpoints.get(i).getDistanceFrom(trackpoints.get(i+1));
             sum += distance;
-            System.out.println(sum);
         }
-        return sum;
+        return Math.round(100.0 * (sum / 1000) / 100.0);
     }
 
     public double getTrainingSumElevation(){
@@ -71,6 +79,9 @@ public class Training {
                 sum += elevationDifference;
             }
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum / 1000).setScale(2, RoundingMode.HALF_UP);
+        double bgSum = bg.doubleValue();
+        System.out.println(bgSum);
+        return bgSum;
     }
 }

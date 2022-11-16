@@ -32,6 +32,8 @@ public class TrainingService {
         Training training = new Training(command.getName(), command.getDescription(), command.getDate());
         training.setTrackpoints(trackPoints);
         repository.save(training);
+        training.setKm(getSumKm(training.getId()));
+        repository.save(training);
         return modelMapper.map(training, TrainingDto.class);
     }
 
