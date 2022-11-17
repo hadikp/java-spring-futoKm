@@ -31,8 +31,9 @@ public class TrainingService {
         List<TrackPoint> trackPoints = command.getTrackpoints();
         Training training = new Training(command.getName(), command.getDescription(), command.getDate());
         training.setTrackpoints(trackPoints);
-        repository.save(training);
-        training.setKm(getSumKm(training.getId()));
+        double sumM = training.getTrainingAllDistance(); // sum distance in meter
+        double sumKm = training.convertKmAndTwoDigits(sumM);
+        training.setKm(sumKm);
         repository.save(training);
         return modelMapper.map(training, TrainingDto.class);
     }

@@ -64,10 +64,16 @@ public class Training {
             double distance = trackpoints.get(i).getDistanceFrom(trackpoints.get(i+1));
             sum += distance;
         }
-        BigDecimal bg = new BigDecimal(sum / 1000).setScale(2, RoundingMode.HALF_UP); //round two digits
+        return sum;
+    }
+
+    public double convertKmAndTwoDigits(double sum) {
+        BigDecimal bg = new BigDecimal(sum / 1000).setScale(2, RoundingMode.HALF_UP);
         double bgSum = bg.doubleValue();
         return bgSum;
     }
+
+    //round two digits
 
     public double getTrainingSumElevation(){
         double sum = 0;
