@@ -33,9 +33,26 @@ class TrackPointTest {
         Coordinate haleszC = new Coordinate(47.194164, 18.431535);
         TrackPoint halesz = new TrackPoint(haleszC, 1);
 
+        Coordinate kertBalFelC =new Coordinate(47.211827, 18.276724);
+        TrackPoint kertBalFel = new TrackPoint(kertBalFelC, 1);
+        Coordinate kertBalAlC =new Coordinate(47.210908, 18.276592);
+        TrackPoint kertBalAl = new TrackPoint(kertBalAlC, 1);
+
         assertEquals(1221.07, tovaros.getDistanceFrom(lovolde1), 0.5);
         assertEquals(1171.6, tovaros.getDistanceFrom(lovoldevege), 0.5);
         assertEquals(2068.5, tovaros.getDistanceFrom(halesz), 0.5);
+
+
+        assertEquals(102.67, kertBalFel.getDistanceFrom(kertBalAl), 0.5); //Bal hosszú
+
+        Coordinate kertJobbFelC =new Coordinate(47.211954, 18.276946);
+        TrackPoint kertJobbFel = new TrackPoint(kertJobbFelC, 1);
+        Coordinate kertJobbAlC =new Coordinate(47.210910, 18.276790);
+        TrackPoint kertJobbAl = new TrackPoint(kertJobbAlC, 1);
+
+        assertEquals(116.7, kertJobbAl.getDistanceFrom(kertJobbFel), 0.5); //Jobb Hosszú
+        assertEquals(15, kertBalAl.getDistanceFrom(kertJobbAl), 0.5); //kert alja
+        assertEquals(22, kertJobbFel.getDistanceFrom(kertBalFel), 0.5);
     }
 
 }
