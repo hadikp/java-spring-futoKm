@@ -5,23 +5,23 @@ migrációt Flyway végzi. Az alkalmazás működését főleg integrációs tes
 több mint 80%-os lefedettséget értem el.
 A cél egy olyan alkalmazás létrehozása volt, ami futónaplóként is funkcionálhat.
 
-Az alkalmazásunk lebildelése mavennel (a JAR állomány elkészítése):
+Az alkalmazásunk lefordítása mavennel (a JAR állomány elkészítése):
 ```shell
 mvn clean package 
 ```
 
-Alkalmazás docker image-nek elkészítése:
+Az alkalmazásból a docker image elkészítése:
 ```shell
 docker build -t image neve .
 ```
 
-A lebildelt docker image a következő Docker paranccsal indítható:
+A létrehozott docker image a következő Docker paranccsal indítható:
 
 ```shell
 docker run -d -e SPRING_DATASOURCE_URL=jdbc:mariadb://vizsgaremek-net-mariadb/vizsgaremek -p 8080:8080 --network vizsgaremek-net spring-vizsgaremek
 ```
 
-A MariaDB adatbázis elindítása a 3307-es porton a következőképpen történik:
+MariaDB adatbázis elindítása docker segítségével a következőképpen történik a 3307-es porton:
 ```shell
 docker run -d -e MYSQL_DATABASE=vizsgaremek -e MYSQL_USER=remek -e MYSQL_PASSWORD=remek -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 3307:3306 --network vizsgaremek-net --name test-mariadb mariadb
 ```

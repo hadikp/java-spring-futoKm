@@ -20,8 +20,9 @@
 - The app is suitable for recording running workouts
 - Calculates the length of the workout, the total number of level climbs
 - Download the data into the mariaDb database
+- Database migration with flyway
 - Spring Data JPA persistent layer is used
-- Tested with integration (mainly WebClient) tests
+- Tested with integration (mainly WebClient) tests, coverage more than 80%
 - Create dynamic documentation with Swagger UI
 
 ## Usage
@@ -33,7 +34,7 @@ Project is: _in progress_
 ## Room for Improvement
 
 Room for improvement:
-- Revise testing structure
+- Improve test coverage
 - Containerisation does not work perfectly
 
 To do:
