@@ -17,13 +17,15 @@
 - Maven - version 3.1.0.
 
 ## Features
-- Authorization and authentication with OAuth 2.0
-- Export report data to Google Sheets
-- Reporting and search queries with JPA Criteria Queries
+- The app is suitable for recording running workouts
+- Calculates the length of the workout, the total number of level climbs
+- Download the data into the mariaDb database
+- Spring Data JPA persistent layer is used
+- Tested with integration (mainly WebClient) tests
+- Create dynamic documentation with Swagger UI
 
 ## Usage
 The application runs on localhost, could be tried out with Postman or **by running tests**.
-Due to authentication, access is needed.
 
 ## Project Status
 Project is: _in progress_
@@ -32,9 +34,9 @@ Project is: _in progress_
 
 Room for improvement:
 - Revise testing structure
-- Break down large classes into smaller ones
-- Outsource code duplications into separated classes/methods
+- Containerisation does not work perfectly
 
 To do:
 - Validation
+- Authorization and authentication with OAuth 2.0
 - Frontend (Vue-vite)
